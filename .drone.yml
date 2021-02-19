@@ -1,4 +1,54 @@
+---
 kind: pipeline
+name: x86
+
+steps:
+- name: test
+  image: golang
+  commands:
+  - go build
+
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: savoiringfaire/overseerr-prom-exporter
+    auto_tag: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+      
+---
+kind: pipeline
+name: arm
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+- name: test
+  image: golang
+  commands:
+  - go build
+
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: savoiringfaire/overseerr-prom-exporter
+    auto_tag: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+      
+---
+kind: pipeline
+name: arm64
+
+platform:
+  os: linux
+  arch: arm64
 
 steps:
 - name: test
