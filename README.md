@@ -1,4 +1,4 @@
-# Docker Container Name
+# Overseerr Prometheus Exporter
 
 Prometheus exporter for basic Overseerr statistics. Currently provides Overseer total requests and pending requests.
 
@@ -47,7 +47,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the 
-[tags on this repository](https://github.com/your/repository/tags). 
+[tags on this repository](https://github.com/savoiringfaire/overseerr-prom-exporter/tags). 
 
 ## Authors
 
