@@ -28,7 +28,7 @@ docker run -p 2112:2112 savoiringfaire/overseerr-prom-exporter:1.0.0
 
 #### Connecting  
 
-```
+```yaml
   - job_name: 'overseerr'
     scrape_interval: 60s
     static_configs:
