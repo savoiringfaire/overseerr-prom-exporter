@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: x86
+name: amd86
 
 steps:
 - name: test
@@ -13,6 +13,7 @@ steps:
   settings:
     repo: savoiringfaire/overseerr-prom-exporter
     auto_tag: true
+    auto_tag_suffix: linux-amd64
     username:
       from_secret: docker_username
     password:
@@ -37,6 +38,7 @@ steps:
   settings:
     repo: savoiringfaire/overseerr-prom-exporter
     auto_tag: true
+    auto_tag_suffix: linux-arm
     username:
       from_secret: docker_username
     password:
@@ -61,7 +63,29 @@ steps:
   settings:
     repo: savoiringfaire/overseerr-prom-exporter
     auto_tag: true
+    auto_tag_suffix: linux-arm64
     username:
       from_secret: docker_username
     password:
       from_secret: docker_password
+
+---
+kind: pipeline
+name: docker-manifest
+
+depends_on:
+  - arm64
+  - arm
+  - amd86
+
+steps:
+  - name: manifest
+    image: plugins/manifest
+    settings:
+      auto_tag: true
+      ignore_missing: true
+      spec: docker/manifest.tmpl
+      password:
+        from_secret: docker_password
+      username:
+        from_secret: docker_username
