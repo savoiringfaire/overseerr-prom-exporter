@@ -16,4 +16,8 @@ manifests:
     platform:
       architecture: arm64
       os: linux
-      variant: v8
+  -
+    image: savoiringfaire/overseerr-prom-exporter:{{#if build.tag}}{{build.tag}}-{{/if}}linux-arm64
+    platform:
+      architecture: arm
+      os: linux
