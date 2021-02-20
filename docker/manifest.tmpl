@@ -1,4 +1,4 @@
-image: gitea/gitea:{{#if build.tag}}{{build.tag}}{{else}}latest{{/if}}
+image: savoiringfaire/overseerr-prom-exporter:{{#if build.tag}}{{build.tag}}{{else}}latest{{/if}}
 {{#if build.tags}}
 tags:
 {{#each build.tags}}
