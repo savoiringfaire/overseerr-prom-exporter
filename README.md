@@ -18,7 +18,7 @@ In order to run this container you'll need docker installed.
 ### Usage
 
 ```shell
-docker run -p 2112:2112 savoiringfaire/overseerr-prom-exporter:1.0.0
+docker run -p 2112:2112 savoiringfaire/overseerr-prom-exporter:1
 ```
 
 #### Environment Variables
